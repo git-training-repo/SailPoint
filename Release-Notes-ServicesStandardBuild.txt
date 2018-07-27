@@ -1,0 +1,46 @@
+Release: SSB v5 GA
+Released: 21 December 2017 
+
+****************************************
+OVERVIEW OF RELEASE
+****************************************
+
+Version 5 of the Services Standard Build (SSB) contains some new features and fixes.
+
+****************************************
+NEW TO THIS RELEASE:
+****************************************
+
+ - Deprecated BeanShell detection: the SSB Build Checks will now scan for deprecated
+   BeanShell code against the version of IdentityIQ that is being built.  This can be 
+   useful when upgrading, where the ability to automatically identify code that is 
+   deprecated in the newer version of IdentityIQ can save a lot of time compared with
+   doing this task manually.
+ - Plugin Compiler: the build process can now automatically compile and build custom 
+   IdentityIQ plugins from their source code, in addition to the auto-deployment
+   functionality previously available.
+ - Updates to SSB User Guide.  Please refer to this guide for more information on the
+   above new features.
+
+Bugs fixed since SSB v4 GA
+
+ - The patchdb target was failing when the database was SQL Server
+
+
+****************************************
+NOTES
+****************************************
+
+JDK version 6 is no longer supported in this release.  Please use JDK 7 or 8.
+
+To assist the SailPoint Support team, the version of the SSB or SSD used to build 
+IdentityIQ can now be seen by accessing the ServicesStandardVersion.html file at the root
+of the application (e.g. http://servername:8080/ServicesStandardVersion.html).  This
+information is taken from these release notes, so please do not delete this file or move
+it from its current location, and do not delete the html file that is generated during the
+build process.  The page also includes a timestamp indicating the last time the build was
+executed.
+
+
+The SSB is part of the Services Standard Deployment (SSD).  For more details please visit:
+https://community.sailpoint.com/community/identityiq/sailpoint-toolkits/standard-services-deployment
