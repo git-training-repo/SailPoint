@@ -1,25 +1,26 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE Application PUBLIC "sailpoint.dtd" "sailpoint.dtd">
-<Application connector="sailpoint.connector.DelimitedFileConnector" featuresString="DIRECT_PERMISSIONS, DISCOVER_SCHEMA, ACCOUNT_ONLY_REQUEST, PROVISIONING" icon="enterpriseIcon" name="FinServ" profileClass="" type="DelimitedFile">
+<Application connector="sailpoint.connector.DelimitedFileConnector" featuresString="DIRECT_PERMISSIONS, NO_RANDOM_ACCESS, DISCOVER_SCHEMA" icon="enterpriseIcon" name="FinServ" profileClass="" type="DelimitedFile">
   <AccountCorrelationConfig>
-    <Reference class="sailpoint.object.CorrelationConfig" name="service account correlation"/>
+    <Reference class="sailpoint.object.CorrelationConfig" name="Finance-HR"/>
   </AccountCorrelationConfig>
   <Attributes>
     <Map>
       <entry key="acctAggregationEnd">
         <value>
-          <Date>1522076088399</Date>
+          <Date>1533202306329</Date>
         </value>
       </entry>
       <entry key="acctAggregationStart">
         <value>
-          <Date>1522076088397</Date>
+          <Date>1533202226429</Date>
         </value>
       </entry>
-      <entry key="buildMapRule" value="FinServ - BuildMap"/>
+      <entry key="afterProvisioningRule"/>
+      <entry key="beforeProvisioningRule"/>
       <entry key="compositeDefinition"/>
       <entry key="delimiter" value=","/>
-      <entry key="file" value="/home/spadmin/ImplementerTraining/data/FinServ.csv"/>
+      <entry key="file" value="/opt/DEVOPS/IIQ Data/FinServ.csv"/>
       <entry key="filetransport" value="local"/>
       <entry key="filterEmptyRecords">
         <value>
@@ -38,6 +39,7 @@
           <Boolean>true</Boolean>
         </value>
       </entry>
+      <entry key="indexColumn" value="FINSERVID"/>
       <entry key="isCaseInsensitiveMerge">
         <value>
           <Boolean/>
@@ -48,9 +50,16 @@
           <Boolean/>
         </value>
       </entry>
+      <entry key="mergeColumns">
+        <value>
+          <List>
+            <String>ACCESSTYPE</String>
+          </List>
+        </value>
+      </entry>
       <entry key="mergeRows">
         <value>
-          <Boolean/>
+          <Boolean>true</Boolean>
         </value>
       </entry>
       <entry key="nativeChangeDetectionAttributeScope" value="entitlements"/>
@@ -78,22 +87,29 @@
       <entry key="templateApplication" value="DelimitedFile Template"/>
     </Map>
   </Attributes>
-  <CreationRule>
-    <Reference class="sailpoint.object.Rule" name="GeneratePassword"/>
-  </CreationRule>
   <Owner>
-    <Reference class="sailpoint.object.Identity" name="a100047"/>
+    <Reference class="sailpoint.object.Identity" name="spadmin"/>
   </Owner>
   <Schemas>
-    <Schema displayAttribute="EID" identityAttribute="FINSERVID" instanceAttribute="" nativeObjectType="account" objectType="account" permissionsRemediationModificationType="None">
-      <AttributeDefinition name="EID" type="string"/>
-      <AttributeDefinition name="FINSERVID" type="string"/>
-      <AttributeDefinition name="USERNAME" type="string"/>
-      <AttributeDefinition name="FINSERVSTATUS" type="string"/>
-      <AttributeDefinition entitlement="true" managed="true" multi="true" name="ACCESSTYPE" type="string"/>
-      <AttributeDefinition name="REGION" type="string"/>
-      <AttributeDefinition name="FIRST NAME" type="string"/>
-      <AttributeDefinition name="LAST NAME" type="string"/>
+    <Schema displayAttribute="USERNAME" identityAttribute="FINSERVID" instanceAttribute="" nativeObjectType="account" objectType="account" permissionsRemediationModificationType="None">
+      <AttributeDefinition name="EID" type="string">
+        <Description/>
+      </AttributeDefinition>
+      <AttributeDefinition name="FINSERVID" type="string">
+        <Description/>
+      </AttributeDefinition>
+      <AttributeDefinition name="USERNAME" type="string">
+        <Description/>
+      </AttributeDefinition>
+      <AttributeDefinition name="FINSERVSTATUS" type="string">
+        <Description/>
+      </AttributeDefinition>
+      <AttributeDefinition entitlement="true" managed="true" multi="true" name="ACCESSTYPE" type="string">
+        <Description/>
+      </AttributeDefinition>
+      <AttributeDefinition name="REGION" type="string">
+        <Description/>
+      </AttributeDefinition>
     </Schema>
   </Schemas>
   <ApplicationScorecard/>
