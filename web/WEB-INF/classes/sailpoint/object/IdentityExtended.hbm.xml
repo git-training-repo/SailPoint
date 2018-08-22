@@ -14,6 +14,8 @@ will usually index most of the extended attributes since they are
 usually added for searching, but index maintenance slows down updates to
 the identity cube so add them only if necessary.
 
+All extended properties must be of type="string".
+
 We need the extended attributes to be large enough to hold arbitrary
 customer data but not so large that Hibernate turns them into a blob or
 other type which cannot be used in searches.
@@ -36,6 +38,11 @@ characcter so the maximum size of an indexed string column is 450.
 If you know you are not running on SQL Server, or you know you will
 not need an index on the column,  you may raise the size safely.
 
+MySQL will only index 767 "bytes" by default for InnoDB tables.
+Using varchar with UTF-8, this equates to at most 255 characters.
+MySQL will allow indexing a subset of the column length,
+so generated ddl will have mysql indexes substringed to 255 by default.
+
 -->
 
     <property name="extended1" type="string" length="450"
@@ -49,35 +56,12 @@ not need an index on the column,  you may raise the size safely.
     <property name="extended5" type="string" length="450"
               index="spt_identity_extended5_ci"/>
 
-    <property name="extended6" type="string" length="450"
-              index="spt_identity_extended6_ci"/>
-    <property name="extended7" type="string" length="450"
-              index="spt_identity_extended7_ci"/>
-    <property name="extended8" type="string" length="450"
-              index="spt_identity_extended8_ci"/>
-    <property name="extended9" type="string" length="450"
-              index="spt_identity_extended9_ci"/>
-    <property name="extended10" type="string" length="450"
-              index="spt_identity_extended10_ci"/>
+    <property name="extended6" type="string" length="450"/>
+    <property name="extended7" type="string" length="450"/>
+    <property name="extended8" type="string" length="450"/>
+    <property name="extended9" type="string" length="450"/>
+    <property name="extended10" type="string" length="450"/>
 
-<property name="extended11" type="string" length="450"
-              index="spt_identity_extended11_ci"/>
-    <property name="extended12" type="string" length="450"
-              index="spt_identity_extended12_ci"/>
-    <property name="extended13" type="string" length="450"
-              index="spt_identity_extended13_ci"/>
-    <property name="extended14" type="string" length="450"
-              index="spt_identity_extended14_ci"/>
-    <property name="extended15" type="string" length="450"
-              index="spt_identity_extended15_ci"/>
-
- <!--    <property name="empId" type="string" length="450"
-              access="sailpoint.persistence.ExtendedPropertyAccessor"
-              index="spt_identity_empId_ci"/>
-   <property name="status" type="string" length="450"
-              access="sailpoint.persistence.ExtendedPropertyAccessor"
-              index="spt_identity_status_ci"/>
--->
     <!-- An example of using ExtendedPropertyAccessor to add
          attributes beyond the limit of 20 numbered 
          SailPointObject properties and have meaningful names.
