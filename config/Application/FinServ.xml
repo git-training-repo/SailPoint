@@ -20,8 +20,8 @@
       <entry key="beforeProvisioningRule"/>
       <entry key="compositeDefinition"/>
       <entry key="delimiter" value=","/>
-      <entry key="file" value="/opt/DEVOPS/IIQ Data/FinServ.csv"/>
-      <entry key="filetransport" value="local"/>
+      <entry key="file" value="/opt/DEVOPS/IIQData/FinServ.csv"/>
+      <entry key="filetransport" value="scp"/>
       <entry key="filterEmptyRecords">
         <value>
           <Boolean>true</Boolean>
@@ -39,6 +39,7 @@
           <Boolean>true</Boolean>
         </value>
       </entry>
+      <entry key="host" value="192.168.56.4"/>	  
       <entry key="indexColumn" value="FINSERVID"/>
       <entry key="isCaseInsensitiveMerge">
         <value>
@@ -85,6 +86,8 @@
         </value>
       </entry>
       <entry key="templateApplication" value="DelimitedFile Template"/>
+      <entry key="transportUser" value="root"/>
+      <entry key="transportUserPassword" value="1:vuOrC9IuuN/X56R/cbnEMA=="/>	  
     </Map>
   </Attributes>
   <Owner>
